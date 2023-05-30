@@ -89,19 +89,7 @@ final class ShippingDeliveryTimeExtension extends AbstractExtension
             new TwigFunction('asdoria_shipping_delivery_time_min_estimated_date_of_delivery', [$this, 'getMinDeliveryDateEstimate']),
             new TwigFunction('asdoria_shipping_delivery_time_max_estimated_date_of_delivery', [$this, 'getMaxDeliveryDateEstimate']),
             new TwigFunction('asdoria_shipping_delivery_time_support_methods', [$this, 'getSupportedMethods']),
-            new TwigFunction('asdoria_shipping_delivery_time_date_format', [$this, 'getDateFormat']),
         ];
-    }
-
-    /**
-     * @param DateTimeInterface $dt
-     * @param string            $locale
-     *
-     * @return string
-     */
-    public function getDateFormat(DateTimeInterface $dt, string $locale = 'fr') : string {
-        $formatter = new \IntlDateFormatter($locale, \IntlDateFormatter::FULL, \IntlDateFormatter::NONE);
-        return $formatter->format($dt);
     }
 
     /**

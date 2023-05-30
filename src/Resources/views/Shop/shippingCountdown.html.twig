@@ -37,7 +37,7 @@
 <p>
 <span>
     <strong>
-         {{ 'asdoria.ui.shipping_delivery_time_estimate'| trans({'%min%' : asdoria_shipping_delivery_time_date_format(min, sylius.localeCode), '%max%' : asdoria_shipping_delivery_time_date_format(max, sylius.localeCode)}) }}
+         {{ 'asdoria.ui.shipping_delivery_time_estimate'| trans({'%min%' : min|date('Y-m-d'), '%max%' : max|date('Y-m-d')}) }}
     </strong>
 </span>
 </p>
