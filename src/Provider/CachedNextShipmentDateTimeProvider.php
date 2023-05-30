@@ -29,7 +29,7 @@ final class CachedNextShipmentDateTimeProvider implements NextShipmentDateTimePr
         $channelCode = $channel->getCode();
         Assert::notNull($channelCode);
         $cacheKey = sprintf(
-            'asdoria-shipping-countdown-%s-%s',
+            'asdoria-shipping-delivery-time-%s-%s',
             $channelCode,
             $shippingMethod->getCode()
         );

@@ -9,6 +9,7 @@ namespace Asdoria\SyliusShippingDeliveryTimePlugin\Traits;
 use Asdoria\SyliusShippingDeliveryTimePlugin\Model\ShippingScheduleInterface;
 use Doctrine\Common\Collections\ArrayCollection;
 use Doctrine\Common\Collections\Collection;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Class ShippingSchedulesTrait
@@ -19,9 +20,14 @@ use Doctrine\Common\Collections\Collection;
 trait ShippingSchedulesTrait
 {
     /**
-     * @var ShippingScheduleInterface[]|Collection
+     * @var Collection
+     *
+     * @ORM\ManyToOne(
+     *     targetEntity="Sylius\Component\Shipping\Model\ShippingMethodInterface",
+     *     inversedBy="shippingSchedules")
+     * @ORM\JoinColumn(name="shipping_method_id", referencedColumnName="id", nullable="true")
      */
-    protected $shippingSchedules;
+    protected Collection $shippingSchedules;
 
     /**
      *
@@ -32,7 +38,7 @@ trait ShippingSchedulesTrait
     }
 
     /**
-     * @return ShippingScheduleInterface[]|Collection
+     * @return Collection
      */
     public function getShippingSchedules(): Collection
     {

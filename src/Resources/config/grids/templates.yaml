@@ -1,4 +1,0 @@
-sylius_grid:
-  templates:
-    action:
-        shipping_schedules: '@AsdoriaSyliusShippingDeliveryTimePlugin/Admin/Grid/Action/shippingSchedules.html.twig'

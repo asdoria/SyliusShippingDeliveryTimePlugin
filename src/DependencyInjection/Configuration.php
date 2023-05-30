@@ -19,7 +19,7 @@ final class Configuration implements ConfigurationInterface
 {
     public function getConfigTreeBuilder(): TreeBuilder
     {
-        $treeBuilder = new TreeBuilder('asdoria_shipping_delivery_time');
+        $treeBuilder = new TreeBuilder('asdoria_sylius_shipping_delivery_time');
 
         /** @var ArrayNodeDefinition $rootNode */
         $rootNode = $treeBuilder->getRootNode();
@@ -29,8 +29,8 @@ final class Configuration implements ConfigurationInterface
 
         // Cache
         $cacheNode = $node->arrayNode('cache')->addDefaultsIfNotSet()->children();
-        $cacheNode->booleanNode('enabled')->defaultFalse();
-        $cacheNode->scalarNode('pool')->defaultNull();
+        $cacheNode->booleanNode('enabled')->defaultTrue();
+        $cacheNode->scalarNode('pool')->defaultValue('app.shipping_delivery_time_cache_pool');
 
         $this->addResourcesSection($rootNode);
 

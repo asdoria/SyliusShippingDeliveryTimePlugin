@@ -16,12 +16,12 @@ use Sylius\Component\Shipping\Model\ShippingMethodInterface;
 trait ShippingMethodTrait
 {
     /**
-     * @var ShippingMethodInterface
+     * @var ShippingMethodInterface|null
      */
-    protected $shippingMethod;
+    protected ?ShippingMethodInterface $shippingMethod = null;
 
     /**
-     * @return ShippingMethodInterface
+     * @return ShippingMethodInterface|null
      */
     public function getShippingMethod(): ?ShippingMethodInterface
     {
@@ -29,7 +29,7 @@ trait ShippingMethodTrait
     }
 
     /**
-     * @param ShippingMethodInterface $shippingMethod
+     * @param ShippingMethodInterface|null $shippingMethod
      */
     public function setShippingMethod(?ShippingMethodInterface $shippingMethod): void
     {

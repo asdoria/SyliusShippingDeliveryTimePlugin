@@ -47,25 +47,13 @@ imports:
     
     # You can also import example fixtures to play
     # - { resource: "@AsdoriaSyliusShippingDeliveryTimePlugin/Resources/config/app/fixtures.yaml" }
-
-# If you want to use caching - add next configuration:
-framework:
-    cache:
-        pools:
-            app.shipping_delivery_time_cache_pool:
-                adapter: cache.app
-
-asdoria_shipping_delivery_time:
-    cache:
-        pool: app.shipping_delivery_time_cache_pool
-        enabled: true
 ```
 
 ### Import routing:
 
 ```yaml
 # config/routes/asdoria_shipping_delivery_time.yaml
-asdoria_shipping_delivery_time:
+asdoria_sylius_shipping_delivery_time:
     resource: "@AsdoriaSyliusShippingDeliveryTimePlugin/Resources/config/routes.yaml"
 ```
 
@@ -73,7 +61,7 @@ or if your app doesn't use locales:
 
 ```yaml
 # config/routes.yaml
-asdoria_shipping_delivery_time:
+asdoria_sylius_shipping_delivery_time:
     resource: "@AsdoriaSyliusShippingDeliveryTimePlugin/Resources/config/routes_no_locale.yaml"
 
 ```
@@ -183,15 +171,11 @@ Make `src/Resources/config/doctrine/Product/Product.orm.xml`
 
 ### Add plugin class to your `bundles.php`:
 
-Make sure you add it before `SyliusGridBundle`, otherwise you'll get
-`You have requested a non-existent parameter "asdoria.model.shipping_schedule.class".` exception.
-
 ```php
 <?php
 $bundles = [
     // ...
     Asdoria\SyliusShippingDeliveryTimePlugin\AsdoriaSyliusShippingDeliveryTimePlugin::class => ['all' => true],
-    Sylius\Bundle\GridBundle\SyliusGridBundle::class => ['all' => true],
     // ...
 ];
 ```
@@ -219,6 +203,8 @@ php bin/console assets:install
 ```bash
 php bin/console cache:clear
 ```
+
+### If the date format doesn't correspond to the locale on server, add package `icu-data-full`
 
 ## Debug schedule
 

@@ -28,7 +28,7 @@ use Sylius\Component\Shipping\Resolver\ShippingMethodsResolverInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
-final class ShippingCountdownExtension extends AbstractExtension
+final class ShippingDeliveryTimeExtension extends AbstractExtension
 {
     private NextShipmentDateTimeProviderInterface $nextShipmentDateTimeProvider;
 

@@ -1,7 +1,0 @@
-imports:
-    - { resource: '../grids/**/*.yaml' }
-
-sylius_grid:
-     templates:
-         filter:
-             asdoria_shipping_delivery_time_entities: '@AsdoriaSyliusShippingDeliveryTimePlugin/Admin/Grid/Filter/asdoria_shipping_delivery_time_entities.html.twig'
