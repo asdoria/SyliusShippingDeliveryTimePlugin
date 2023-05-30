@@ -1,0 +1,46 @@
+asdoria:
+    menu:
+        admin:
+            main:
+                configuration:
+                    shipping_schedule: Shipping schedule
+    ui:
+        shipping_schedules: Shipping schedule
+        new_shipping_schedule: New shipping schedule
+        edit_shipping_schedule: Edit shipping schedule
+        manage_shipping_schedule: Manage shipping schedule
+        weekday: Weekday
+        weekdays:
+            any: Any weekday
+            monday: Monday
+            tuesday: Tuesday
+            wednesday: Wednesday
+            thursday: Thursday
+            friday: Friday
+            saturday: Saturday
+            sunday: Sunday
+        channels: Channels
+        ship_at: Ship time
+        no_shipping: No shipping
+        starts_at: Starts at
+        no_starts_at: Not limited
+        ends_at: Ends at
+        no_ends_at: Not limited
+        shipment_delivery_time:
+            next_shipment: Next shipment in
+            days: d
+            hours: h
+            minutes: m
+            seconds: s
+    form:
+        shipping_schedule:
+            ship_at: Ship time
+            ship_at_help: Leave empty if there is no shipping at this day
+            weekday: Weekday
+            weekday_help: Apply Ship time to this weekday only
+            starts_at: Starts at
+            starts_at_help: Apply Ship time to days since given or leave empty
+            ends_at: Ends at
+            ends_at_help: Apply Ship time to days prior to given or leave empty
+            channels: Channels
+            priority: Priority

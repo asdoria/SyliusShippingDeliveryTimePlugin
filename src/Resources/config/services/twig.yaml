@@ -1,0 +1,12 @@
+services:
+    asdoria_shipping_delivery_time.twig.shipping_delivery_time_extension:
+        class: Asdoria\SyliusShippingDeliveryTimePlugin\Twig\ShippingDeliveryTimeExtension
+        arguments:
+            $nextShipmentDateTimeProvider: '@asdoria_shipping_delivery_time.provider.next_shipment'
+            $methodRepository: '@sylius.repository.shipping_method'
+            $shippingMethodsResolver: '@sylius.shipping_methods_resolver'
+            $contextCart: '@sylius.context.cart'
+            $channelContext: '@sylius.context.channel'
+            $zoneHelper: '@Asdoria\SyliusShippingDeliveryTimePlugin\Helper\ZoneHelper'
+        tags:
+            - { name: twig.extension }

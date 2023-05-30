@@ -1,0 +1,5 @@
+{% if data is null %}
+    {{ 'asdoria.ui.weekdays.any'|trans }}
+{% else %}
+    {{ 'this monday'|date|date_modify("+#{data-1} days")|date('l') }}
+{% endif %}

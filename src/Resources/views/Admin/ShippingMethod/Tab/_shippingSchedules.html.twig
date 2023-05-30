@@ -1,0 +1,13 @@
+{% form_theme form '@AsdoriaSyliusShippingDeliveryTimePlugin/Admin/Form/shippingSchedulesTheme.html.twig' %}
+
+<div class="ui tab" data-tab="shippingSchedules">
+    <h3 class="ui top attached header">{{ 'asdoria.ui.shipping_schedules'|trans }}</h3>
+
+    <div class="ui attached segment">
+        <div style="margin-bottom: 2.5rem;">
+            {{ form_label(form.shippingSchedules) }}
+            {{ form_errors(form.shippingSchedules) }}
+        </div>
+        {{ form_widget(form.shippingSchedules) }}
+    </div>
+</div>

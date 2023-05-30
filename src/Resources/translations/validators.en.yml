@@ -1,0 +1,7 @@
+asdoria:
+    shipping_schedule:
+        code:
+            not_blank: Please enter code
+            unique: Code must be unique
+            max_length: Code must not be longer than {{ limit }} characters|Code must not be longer than {{ limit }} characters
+        

@@ -1,0 +1,8 @@
+services:
+    asdoria_shipping_delivery_time.grid_field.datetime:
+        class: Asdoria\SyliusShippingDeliveryTimePlugin\Grid\FieldType\DatetimeFieldType
+        arguments:
+            $dataExtractor: '@sylius.grid.data_extractor'
+            $translator: '@translator'
+        tags:
+            - { name: sylius.grid_field, type: asdoria_shipping_delivery_time_datetime }

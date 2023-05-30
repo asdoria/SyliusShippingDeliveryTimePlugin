@@ -1,0 +1,2 @@
+{% set menu = knp_menu_get('asdoria_shipping_delivery_time.admin.shipping_method_form', [], {'shipping_method': shipping_method}) %}
+{{ knp_menu_render(menu, {'template': '@AsdoriaSyliusShippingDeliveryTimePlugin/Admin/ShippingMethod/_menu.html.twig', 'form': form, 'shipping_method': shipping_method}) }}

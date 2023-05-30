@@ -1,0 +1,13 @@
+{% form_theme form.images '@SyliusAdmin/Form/customImagesTheme.html.twig' %}
+
+<div class="ui tab" data-tab="media">
+    <h3 class="ui top attached header">{{ 'sylius.ui.media'|trans }}</h3>
+
+    <div class="ui attached segment">
+        <div style="margin-bottom: 2.5rem;">
+            {{ form_label(form.images) }}
+            {{ form_errors(form.images) }}
+        </div>
+        {{ form_widget(form.images) }}
+    </div>
+</div>

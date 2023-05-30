@@ -1,0 +1,12 @@
+sylius_grid:
+    grids:
+        sylius_admin_shipping_method:
+            extends: sylius_admin_shipping_method
+            actions:
+                item:
+                    update:
+                        type: update
+                    delete:
+                        type: delete
+                    archive:
+                        type: archive

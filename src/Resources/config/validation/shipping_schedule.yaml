@@ -1,0 +1,20 @@
+Asdoria\SyliusShippingDeliveryTimePlugin\Entity\ShippingSchedule:
+    constraints:
+        -  Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity:
+               fields: [code]
+               groups: [asdoria_shipping_delivery_time, sylius, Default]
+    properties:
+        code:
+            - NotBlank:
+                  message: 'asdoria.shipping_schedule.code.not_blank'
+                  groups: ['asdoria_shipping_delivery_time', 'sylius', 'Default']
+            - Length:
+                  min: 2
+                  max: 255
+                  minMessage: 'asdoria_cms_plugin.page.code.min_length'
+                  maxMessage: 'asdoria_cms_plugin.page.code.max_length'
+                  groups: ['asdoria_shipping_delivery_time', 'sylius', 'Default']
+        priority:
+            - NotBlank:
+                  message: 'asdoria.shipping_schedule.priority.not_blank'
+                  groups: [ 'asdoria_shipping_delivery_time', 'sylius' , 'Default']

@@ -1,0 +1,58 @@
+asdoria:
+    menu:
+        admin:
+            main:
+                configuration:
+                    shipping_schedule: Horaires d'expédition
+    ui:
+        shipping_delivery_time: Delais d'expédition
+        shipping_delivery_times: Delais d'expédition
+        shipping_delivery_time_estimate: Expédition estimée entre le %min% et le %max%
+        shipping_delivery_time_additional: Delais d'expédition supplémentaire par canal
+        shipping_schedules: Horaires d'expédition
+        new_shipping_schedule: Nouveaux horaires d'expédition
+        edit_shipping_schedule: Modifier les horaires d'expédition
+        manage_shipping_schedule: Gérer les horaires d'expédition
+        weekday: Jour de la semaine
+        weekdays:
+            any: Tous les jours de la semaine
+            monday: Lundi
+            tuesday: Mardi
+            wednesday: Mercredi
+            thursday: Jeudi
+            friday: Vendredi
+            saturday: Samedi
+            sunday: Dimanche
+        channels: Canaux
+        ship_at: Expédition à
+        no_shipping: Pas d'expédition
+        starts_at: Commence à
+        no_starts_at: Pas de limite
+        ends_at: Termine à
+        no_ends_at: Pas de limite
+        shipment_delivery_time:
+            next_shipment: Prochaine expédition dans
+            days: j
+            hours: h
+            minutes: m
+            seconds: s
+    form:
+        shipping_schedule:
+            ship_at: Expédition à
+            ship_at_help: Laisser vide s'il n'y a pas d'expédition ce jour
+            weekday: Jour de la semaine
+            weekday_help: Appliquer l'heure d'expédition à ce jour seulement
+            starts_at: Commence à
+            starts_at_help: Appliquer l'heure d'expédition à partir de cette date ou laisser vide
+            ends_at: Termine à
+            ends_at_help: Appliquer l'heure d'expédition jusqu'à cette date ou laisser vide
+            channels: Canaux
+            priority: Priorité
+        product:
+            additional_delivery_time: Délai d'expédition supplémentaire
+        shipping_method:
+            delivery_min_time: Délai d'expédition min
+            delivery_max_time: Délai d'expédition max
+            delivery_weekdays: Jours d'expédition
+        channel:
+            shipping_zone_default: Zone de livraison par défaut

@@ -1,0 +1,13 @@
+services:
+    asdoria_shipping_delivery_time.listener.admin.product_form_menu_builder:
+        class: Asdoria\SyliusShippingDeliveryTimePlugin\Menu\AdminProductFormMenuListener
+        tags:
+            - { name: kernel.event_listener, event: sylius.menu.admin.product.form, method: "addItems" }
+
+    asdoria_shipping_delivery_time.admin.menu_builder.shipping_method_form:
+        class: Asdoria\SyliusShippingDeliveryTimePlugin\Menu\ShippingMethodFormMenuBuilder
+        arguments:
+            $factory: "@knp_menu.factory"
+            $eventDispatcher: "@event_dispatcher"
+        tags:
+            - { name: knp_menu.menu_builder, alias: asdoria_shipping_delivery_time.admin.shipping_method_form, method: "createMenu" }

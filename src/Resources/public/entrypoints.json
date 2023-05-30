@@ -1,0 +1,10 @@
+{
+  "entrypoints": {
+    "asdoria-countdown": {
+      "js": [
+        "/bundles/asdoriashippingcountdown/js/runtime.min.js",
+        "/bundles/asdoriashippingcountdown/js/asdoria-countdown.min.js"
+      ]
+    }
+  }
+}

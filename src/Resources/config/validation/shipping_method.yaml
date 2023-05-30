@@ -1,0 +1,5 @@
+App\Entity\Shipping\ShippingMethod:
+    properties:
+        shippingSchedules:
+            - Valid:
+                groups: [sylius, Default]

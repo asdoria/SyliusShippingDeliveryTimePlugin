@@ -1,0 +1,12 @@
+<div id="asdoria_channel_additional_delivery_time">
+    <div class="ui top attached tabular menu">
+        {% for channelCode, additional in additionalDeliveryTimeForm.children %}
+            <a class="item{% if loop.index0 == 0 %} active{% endif %}" data-tab="{{ channelCode }}">{{ additional.vars.name| default('') }}</a>
+        {% endfor %}
+    </div>
+    {% for channelCode, additional in additionalDeliveryTimeForm.children %}
+        <div class="ui bottom attached {% if loop.index0 == 0 %}active {% endif %}tab segment" data-tab="{{ channelCode }}">
+            {{ form_row(additional, {'label': false}) }}
+        </div>
+    {% endfor %}
+</div>

@@ -1,0 +1,11 @@
+<div class="ui tab" data-tab="taxonomy">
+    <h3 class="ui top attached header">{{ 'sylius.ui.taxonomy'|trans }}</h3>
+
+    <div class="ui attached segment">
+        <h4 class="ui dividing header">{{ 'sylius.ui.category_requirements'|trans }}</h4>
+        {{ form_row(form.category) }}
+        {% for categoryRequirementChoiceForm in form.categoryRequirement %}
+            {{ form_row(categoryRequirementChoiceForm) }}
+        {% endfor %}
+    </div>
+</div>

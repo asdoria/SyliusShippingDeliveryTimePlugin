@@ -1,0 +1,14 @@
+imports:
+    - { resource: 'grids.yaml' }
+    - { resource: 'ui.yaml' }
+parameters:
+    asdoria.model.shipping_schedule.class: Asdoria\SyliusShippingDeliveryTimePlugin\Entity\ShippingSchedule
+
+doctrine_migrations:
+    migrations_paths:
+        'Asdoria\SyliusShippingDeliveryTimePlugin\Migrations': '@AsdoriaSyliusShippingDeliveryTimePlugin/Migrations'
+
+doctrine:
+    orm:
+        resolve_target_entities:
+            Asdoria\Bundle\ShippingCountBundle\Model\ShippingScheduleInterface: Asdoria\Bundle\ShippingCountBundle\Entity\ShippingSchedule

@@ -1,0 +1,8 @@
+services:
+    asdoria_shipping_delivery_time.provider.next_shipment.cached:
+        class: Asdoria\SyliusShippingDeliveryTimePlugin\Provider\CachedNextShipmentDateTimeProvider
+        decorates: asdoria_shipping_delivery_time.provider.next_shipment
+        decoration_priority: 256
+        arguments:
+            $decorated: '@asdoria_shipping_delivery_time.provider.next_shipment.cached.inner'
+            $cache: '@asdoria_shipping_delivery_time.cache'

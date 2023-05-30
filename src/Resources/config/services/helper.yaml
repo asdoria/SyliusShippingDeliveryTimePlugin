@@ -1,0 +1,5 @@
+services:
+    Asdoria\SyliusShippingDeliveryTimePlugin\Helper\ZoneHelper:
+        arguments:
+            $provinceRepository: '@sylius.repository.province'
+            $countryRepository: '@sylius.repository.country'

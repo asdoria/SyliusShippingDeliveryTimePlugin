@@ -1,0 +1,5 @@
+services:
+    asdoria_shipping_delivery_time.provider.next_shipment:
+        class: Asdoria\SyliusShippingDeliveryTimePlugin\Provider\NextShipmentDateTimeProvider
+        arguments:
+            $repository: '@asdoria.repository.shipping_schedule'

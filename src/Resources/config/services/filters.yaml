@@ -1,0 +1,5 @@
+services:
+    asdoria_shipping_delivery_time.grid_filter.entities:
+        class: Asdoria\SyliusShippingDeliveryTimePlugin\Grid\Filter\EntitiesFilter
+        tags:
+            - { name: sylius.grid_filter, type: asdoria_shipping_delivery_time_entities , form_type: Asdoria\SyliusShippingDeliveryTimePlugin\Form\Type\Grid\Filter\EntitiesFilterType }

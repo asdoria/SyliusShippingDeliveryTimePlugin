@@ -1,0 +1,35 @@
+sylius_ui:
+    events:
+#        sylius.shop.product.show.before_add_to_cart:
+        sylius.shop.product.show.add_to_cart_form:
+            blocks:
+                asdoria_shipping_delivery_time:
+                    template: "@AsdoriaSyliusShippingDeliveryTimePlugin/Shop/shippingCountdown.html.twig"
+                    priority: 10
+#                    context:
+#                        event:
+
+        sylius.shop.layout.javascripts:
+            blocks:
+                asdoria_shipping_delivery_time_scripts:
+                    template: "@AsdoriaSyliusShippingDeliveryTimePlugin/Shop/_scripts.html.twig"
+                    priority: 10
+
+        asdoria_shipping_delivery_time.shop.layout.javascripts:
+            blocks:
+                asdoria_shipping_delivery_time_scripts:
+                    template: "@AsdoriaSyliusShippingDeliveryTimePlugin/Shop/_scripts.html.twig"
+                    priority: 10
+
+        sylius.admin.channel.update.form:
+            blocks:
+                asdoria_shipping_delivery_time_channel:
+                    template: "@AsdoriaSyliusShippingDeliveryTimePlugin/Admin/Channel/_defaultShippingZone.html.twig"
+                    priority: 10
+
+        asdoria_shipping_delivery_time.admin.shipping_method.create.tab_details:
+            blocks:
+                legacy:
+                    template: "@SyliusUi/Block/_legacySonataEvent.html.twig"
+                    context:
+                        event: asdoria_shipping_delivery_time.admin.shipping_method.create.tab_details

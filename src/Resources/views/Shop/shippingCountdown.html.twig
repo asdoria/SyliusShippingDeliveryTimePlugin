@@ -1,0 +1,44 @@
+{% set min = date('now') %}
+{% set max = date('now') %}
+{% set shippingMethodMinDeliveryTime = null %}
+    {% for shippingMethod in asdoria_shipping_delivery_time_support_methods(product) %}
+    {% if loop.index0 == 0 %}
+        {% set min = asdoria_shipping_delivery_time_min_estimated_date_of_delivery(sylius.channel, shippingMethod, product) %}
+        {% set max = asdoria_shipping_delivery_time_max_estimated_date_of_delivery(sylius.channel, shippingMethod, product) %}
+        {% set shippingMethodMinDeliveryTime = shippingMethod %}
+    {% else %}
+        {% set min_estimated = asdoria_shipping_delivery_time_min_estimated_date_of_delivery(sylius.channel, shippingMethod, product) %}
+        {% set max_estimated = asdoria_shipping_delivery_time_max_estimated_date_of_delivery(sylius.channel, shippingMethod, product) %}
+        {% if  min_estimated < min %}
+            {% set min = min_estimated %}
+            {% set shippingMethodMinDeliveryTime = shippingMethod %}
+        {% endif %}
+        {% if  max_estimated > max %}
+            {% set max = max_estimated %}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+{% if shippingMethodMinDeliveryTime is not null %}
+<div class="asdoria-shipment-delivery-time ui left stackable inverted menu"
+                     style="display: none;"
+                     data-next-shipment-date="{{ asdoria_shipping_delivery_time_next_shipment_date_rfc2822(sylius.channel, shippingMethodMinDeliveryTime) }}"
+>
+    <div class="item" title="{{ asdoria_shipping_delivery_time_next_shipment_date(sylius.channel, shippingMethodMinDeliveryTime)|date() }}">
+        <span class="text">{{ 'asdoria.ui.shipment_delivery_time.next_shipment'|trans }} ({{ shippingMethodMinDeliveryTime.name }})</span>
+        <span style="display: none;">
+                &nbsp;
+                <span class="days"></span>
+                {{ 'asdoria.ui.shipment_delivery_time.days'|trans }}
+            </span>
+        &nbsp;
+        <span class="hours"></span>:<span class="minutes"></span>:<span class="seconds"></span>
+    </div>
+</div>
+<p>
+<span>
+    <strong>
+         {{ 'asdoria.ui.shipping_delivery_time_estimate_delivery_time'| trans({'%min%' : asdoria_shipping_countdown_date_format(min, sylius.localeCode), '%max%' : asdoria_shipping_countdown_date_format(max, sylius.localeCode)}) }}
+    </strong>
+</span>
+</p>
+{% endif %}

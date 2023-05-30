@@ -1,0 +1,10 @@
+parameters:
+    asdoria_shipping_delivery_time.form.type.shipping_schedule.validation_groups: [asdoria_shipping_delivery_time]
+services:
+    asdoria_shipping_delivery_time.form.type.shipping_schedule:
+        class: Asdoria\SyliusShippingDeliveryTimePlugin\Form\Type\ShippingScheduleType
+        arguments:
+            $dataClass: '%asdoria.model.shipping_schedule.class%'
+            $validationGroups: '%asdoria_shipping_delivery_time.form.type.shipping_schedule.validation_groups%'
+        tags:
+            - { name: form.type }

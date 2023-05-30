@@ -1,0 +1,8 @@
+services:
+    asdoria_shipping_delivery_time.command.debug:
+        class: Asdoria\SyliusShippingDeliveryTimePlugin\Command\DebugScheduleCommand
+        arguments:
+            $channelRepository: '@sylius.repository.channel'
+            $provider: '@asdoria_shipping_delivery_time.provider.next_shipment'
+        tags:
+            - { name: console.command }

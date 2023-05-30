@@ -1,0 +1,15 @@
+services:
+    asdoria_shipping_delivery_time.form.extension.type.product:
+        class: Asdoria\SyliusShippingDeliveryTimePlugin\Form\Extension\ProductTypeExtension
+        tags:
+            - { name : form.type_extension, extended_type: Sylius\Bundle\ProductBundle\Form\Type\ProductType, priority: -110 }
+
+    asdoria_shipping_delivery_time.form.extension.type.shipping_method:
+        class: Asdoria\SyliusShippingDeliveryTimePlugin\Form\Extension\ShippingMethodTypeExtension
+        tags:
+            - { name : form.type_extension, extended_type: Sylius\Bundle\ShippingBundle\Form\Type\ShippingMethodType, priority: -110 }
+
+    asdoria_shipping_delivery_time.form.extension.type.channel:
+        class: Asdoria\SyliusShippingDeliveryTimePlugin\Form\Extension\ChannelTypeExtension
+        tags:
+            - { name : form.type_extension, extended_type: Sylius\Bundle\ChannelBundle\Form\Type\ChannelType, priority: -110 }
