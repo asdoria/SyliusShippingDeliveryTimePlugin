@@ -1,5 +1,5 @@
-import ShippingCountdown from './shipping-delivery-time'
+import ShippingDeliveryTime from './shipping-delivery-time'
 
 document.addEventListener('DOMContentLoaded', () => {
-    ShippingCountdown()
+    ShippingDeliveryTime()
 });

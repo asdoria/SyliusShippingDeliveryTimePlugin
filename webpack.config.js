@@ -1,55 +1,50 @@
-const Encore = require('@symfony/webpack-encore');
-const path = require('path');
-const fs = require('fs');
+const Encore = require('@symfony/webpack-encore')
+const path   = require('path')
 
+const assetsPath = path.resolve('./src/Resources/private')
+const outputPath = path.resolve('./src/Resources/public')
+const publicPath = '/bundles/asdoriashippingdeliverytimeplugin/'
 
-const uiBundleScripts = path.resolve(__dirname, '../../sylius/sylius/src/Sylius/Bundle/UiBundle/Resources/private/js/');
-const basePath = path.resolve(__dirname, './');
-const assets_path = path.join(basePath, './src/Resources/private');
-const output_path = path.join(basePath, './src/Resources/public');
-const public_path = 'bundles/asdoriasyliusshippingdeliverytimeplugin';
-const sass_path = path.join(assets_path, './sass');
-const js_path = path.join(assets_path, './js');
-const isProduction = Encore.isProduction();
+const cssPath = path.join(assetsPath, './css')
+const jsPath  = path.join(assetsPath, './js')
 
 Encore
-  // empty the outputPath dir cd ../before each build
-  .cleanupOutputBeforeBuild()
+    .setOutputPath(outputPath)
+    .setPublicPath(publicPath)
+    .setManifestKeyPrefix('bundles/asdoriashippingdeliverytimeplugin/')
 
-  // directory where all compiled assets will be stored
-  .setOutputPath(output_path)
+    .addEntry('asdoria-deliverytime', [
+        path.join(jsPath, './shop.js'),
+        path.join(jsPath, './shipping-delivery-time.js')
+    ])
 
-  .setPublicPath('/' + public_path)
-  .setManifestKeyPrefix(public_path)
+    .enableSourceMaps()
+    // .disableSingleRuntimeChunk()
 
-  .addEntry('shop-shippingdeliverytime', [
-    path.join(js_path, './shop.js'),
-    path.join(sass_path, './shop.scss'),
-  ])
-  .addEntry('admin-shippingdeliverytime', [
-    path.join(js_path, './admin.js'),
-    path.join(sass_path, './admin.scss'),
-  ])
+    // When enabled, Webpack "splits" your files into smaller pieces for greater optimization.
+    // .splitEntryChunks()
 
-  // allow sass/scss files to be processed
-  .enableSassLoader()
-  // .enablePostCssLoader()
+    // will require an extra script tag for runtime.js
+    // but, you probably want this, unless you're building a single-page app
+    .enableSingleRuntimeChunk()
 
-  // allow legacy applications to use $/jQuery as a global variable
-  .autoProvidejQuery()
+    .cleanupOutputBeforeBuild()
+    .enableSourceMaps(!Encore.isProduction())
+    .enableVersioning(Encore.isProduction())
 
-  .enableSourceMaps(!isProduction)
-
-  .disableSingleRuntimeChunk()
-
-  // create hashed filenames (e.g. app.abc123.css)
-  .enableVersioning(isProduction)
-  .configureFilenames({
-    js: '[name].min.js',
-    css: '[name].min.css',
-  })
+    .configureFilenames({
+        js: 'js/[name].min.js',
+        css: 'css/[name].min.css',
+    })
+    .enableSassLoader()
 ;
 
-const config = Encore.getWebpackConfig();
-config.resolve.alias['sylius/ui'] = uiBundleScripts;
-module.exports = config;
+const config = Encore.getWebpackConfig()
+
+// config = Encore.getWebpackConfig();
+config.watchOptions = {
+    poll: true,
+    ignored: /node_modules/
+}
+// export the final configuration
+module.exports      = config

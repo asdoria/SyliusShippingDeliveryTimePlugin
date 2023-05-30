@@ -1,4 +1,4 @@
 {
-  "bundles/asdoriashippingcountdown/asdoria-countdown.js": "/bundles/asdoriashippingcountdown/js/asdoria-countdown.min.js",
-  "bundles/asdoriashippingcountdown/runtime.js": "/bundles/asdoriashippingcountdown/js/runtime.min.js"
+  "bundles/asdoriashippingdeliverytimeplugin/asdoria-deliverytime.js": "/bundles/asdoriashippingdeliverytimeplugin/js/asdoria-deliverytime.min.js",
+  "bundles/asdoriashippingdeliverytimeplugin/runtime.js": "/bundles/asdoriashippingdeliverytimeplugin/js/runtime.min.js"
 }
