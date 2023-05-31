@@ -6,6 +6,7 @@ declare(strict_types=1);
 namespace Asdoria\SyliusShippingDeliveryTimePlugin\Traits\Aware;
 
 use Asdoria\SyliusShippingDeliveryTimePlugin\Traits\ShippingSchedulesTrait;
+use Doctrine\ORM\Mapping as ORM;
 
 /**
  * Trait ShippingMethodCountdownAwareTrait
@@ -17,22 +18,30 @@ trait ShippingMethodCountdownAwareTrait
 
     /**
      * @var array
+     *
+     * @ORM\Column(type="array", name="delivery_weekdays", nullable=false)
      */
-    protected $deliveryWeekdays = [];
+    protected array $deliveryWeekdays = [];
 
     /**
      * @var int|null
+     *
+     * @ORM\Column(type="integer", name="delivery_max_time", nullable=true, options={"default":0})
      */
     protected $deliveryMaxTime = 0;
 
     /**
      * @var int|null
+     *
+     * @ORM\Column(type="integer", name="delivery_min_time", nullable=true, options={"default":0})
      */
     protected $deliveryMinTime = 0;
 
 
     /**
      * @var array
+     *
+     * @ORM\Column(type="json", name="additional_delivery_time", nullable=true)
      */
     protected $additionalDeliveryTime = [];
 

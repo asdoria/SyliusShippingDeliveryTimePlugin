@@ -22,10 +22,7 @@ trait ShippingSchedulesTrait
     /**
      * @var Collection
      *
-     * @ORM\ManyToOne(
-     *     targetEntity="Sylius\Component\Shipping\Model\ShippingMethodInterface",
-     *     inversedBy="shippingSchedules")
-     * @ORM\JoinColumn(name="shipping_method_id", referencedColumnName="id", nullable="true")
+     * @ORM\OneToMany(targetEntity="Asdoria\SyliusShippingDeliveryTimePlugin\Model\ShippingScheduleInterface", mappedBy="shippingMethod", cascade={"all"}, orphanRemoval=true)
      */
     protected Collection $shippingSchedules;
 

@@ -158,11 +158,11 @@ use Asdoria\SyliusShippingDeliveryTimePlugin\Traits\Aware\DefaultShippingZoneAwa
 
 class Channel extends BaseChannel implements ChannelInterface, DefaultShippingZoneAwareInterface
 {
-    use ProductCountdownAwareTrait;
+    use DefaultShippingZoneAwareTrait;
 }
 ```
 
-Make `src/Resources/config/doctrine/Product/Product.orm.xml`
+Make `src/Resources/config/doctrine/Channel/Channel.orm.xml`
 ```xml
 <mapped-superclass name="App\Entity\Channel\Channel" table="sylius_channel">
     <many-to-one field="defaultShippingZone" target-entity="Sylius\Component\Addressing\Model\ZoneInterface"/>
