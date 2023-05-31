@@ -1,4 +1,6 @@
-# AsdoriaSyliusShippingDeliveryTimePlugin
+<h1 align="center">Asdoria Sylius Shipping Delivery Time Plugin</h1>
+
+<div align="center">
 
 [![Latest Version][ico-version]][link-packagist]
 [![Latest Unstable Version][ico-unstable-version]][link-packagist]
@@ -6,11 +8,13 @@
 [![Build Status][ico-github-actions]][link-github-actions]
 [![Code Coverage][ico-code-coverage]][link-code-coverage]
 
-## Screenshots
+</div>
 
-![Screenshot showing shipping schedule index at admin](docs/images/admin-shipping-schedule-index.png)
+<div style="max-width: max-content; height: auto; margin: auto">
 
-![Screenshot showing shipping delivery time at shop header](docs/images/shop-index-header.png)
+![Shipping delivery time plugin](doc/presentation.gif)
+
+</div>
 
 ## Installation
 

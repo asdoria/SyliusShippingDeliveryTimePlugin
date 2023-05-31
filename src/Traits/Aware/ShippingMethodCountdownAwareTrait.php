@@ -28,14 +28,14 @@ trait ShippingMethodCountdownAwareTrait
      *
      * @ORM\Column(type="integer", name="delivery_max_time", nullable=true, options={"default":0})
      */
-    protected $deliveryMaxTime = 0;
+    protected ?int $deliveryMaxTime = 0;
 
     /**
      * @var int|null
      *
      * @ORM\Column(type="integer", name="delivery_min_time", nullable=true, options={"default":0})
      */
-    protected $deliveryMinTime = 0;
+    protected ?int $deliveryMinTime = 0;
 
 
     /**
@@ -43,7 +43,7 @@ trait ShippingMethodCountdownAwareTrait
      *
      * @ORM\Column(type="json", name="additional_delivery_time", nullable=true)
      */
-    protected $additionalDeliveryTime = [];
+    protected array $additionalDeliveryTime = [];
 
     /**
      * @return array

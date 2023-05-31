@@ -18,7 +18,7 @@ trait ProductCountdownAwareTrait
      *
      * @ORM\Column(type="integer", name="additional_delivery_time", nullable=true, options={"default":0})
      */
-    protected $additionalDeliveryTime = 0;
+    protected int $additionalDeliveryTime = 0;
 
     /**
      * @return int

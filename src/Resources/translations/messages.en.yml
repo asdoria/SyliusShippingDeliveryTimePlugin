@@ -5,6 +5,10 @@ asdoria:
                 configuration:
                     shipping_schedule: Shipping schedule
     ui:
+        shipping_delivery_time: Delivery time
+        shipping_delivery_times: Delivery times
+        shipping_delivery_time_estimate: Estimated shipping between %min% and %max%
+        shipping_delivery_time_additional: Additional shipping times per channel
         shipping_schedules: Shipping schedule
         new_shipping_schedule: New shipping schedule
         edit_shipping_schedule: Edit shipping schedule
@@ -44,3 +48,11 @@ asdoria:
             ends_at_help: Apply Ship time to days prior to given or leave empty
             channels: Channels
             priority: Priority
+        product:
+            additional_delivery_time: Additional delivery time
+        shipping_method:
+            delivery_min_time: Minimum delivery time
+            delivery_max_time: Maximum delivery time
+            delivery_weekdays: Shipping days
+        channel:
+            shipping_zone_default: Default shipping zone
