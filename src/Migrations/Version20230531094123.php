@@ -22,11 +22,13 @@ final class Version20230531094123 extends AbstractMigration
         // this up() migration is auto-generated, please modify it to your needs
         if (!$schema->hasTable('asdoria_shipping_schedule')) {
             $this->addSql('CREATE TABLE asdoria_shipping_schedule (id INT AUTO_INCREMENT NOT NULL, shipping_method_id INT NOT NULL, code VARCHAR(255) NOT NULL, weekday SMALLINT DEFAULT NULL, ship_at TIME DEFAULT NULL, starts_at DATE DEFAULT NULL, ends_at DATE DEFAULT NULL, priority INT DEFAULT 0 NOT NULL, UNIQUE INDEX UNIQ_EBB6DECD77153098 (code), INDEX IDX_EBB6DECD5F7D6850 (shipping_method_id), PRIMARY KEY(id)) DEFAULT CHARACTER SET utf8mb4 COLLATE `utf8mb4_unicode_ci` ENGINE = InnoDB');
+            $this->addSql('ALTER TABLE asdoria_shipping_schedule ADD CONSTRAINT FK_EBB6DECD5F7D6850 FOREIGN KEY (shipping_method_id) REFERENCES sylius_shipping_method (id)');
         }
-        $this->addSql('ALTER TABLE asdoria_shipping_schedule ADD CONSTRAINT FK_EBB6DECD5F7D6850 FOREIGN KEY (shipping_method_id) REFERENCES sylius_shipping_method (id)');
-        $this->addSql('ALTER TABLE sylius_channel ADD defaultShippingZone_id INT DEFAULT NULL');
-        $this->addSql('ALTER TABLE sylius_channel ADD CONSTRAINT FK_16C8119E52CC27A8 FOREIGN KEY (defaultShippingZone_id) REFERENCES sylius_zone (id)');
-        $this->addSql('CREATE INDEX IDX_16C8119E52CC27A8 ON sylius_channel (defaultShippingZone_id)');
+        if (!$schema->getTable('sylius_channel')->hasColumn('defaultShippingZone_id')) {
+            $this->addSql('ALTER TABLE sylius_channel ADD defaultShippingZone_id INT DEFAULT NULL');
+            $this->addSql('ALTER TABLE sylius_channel ADD CONSTRAINT FK_16C8119E52CC27A8 FOREIGN KEY (defaultShippingZone_id) REFERENCES sylius_zone (id)');
+            $this->addSql('CREATE INDEX IDX_16C8119E52CC27A8 ON sylius_channel (defaultShippingZone_id)');
+        }
         if(!$schema->getTable('sylius_product')->hasColumn('additional_delivery_time')) {
             $this->addSql('ALTER TABLE sylius_product ADD additional_delivery_time INT DEFAULT 0');
         }
