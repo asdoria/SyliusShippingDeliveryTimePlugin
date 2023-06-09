@@ -27,7 +27,7 @@
         // ...
         {
             "type": "github",
-            "url": "https://github.com/asdoria/AsdoriaSyliusShippingDeliveryTimePlugin"
+            "url": "https://github.com/asdoria/AsdoriaSyliusShippingDeliveryTimePlugin.git"
         }
     ]
 }
