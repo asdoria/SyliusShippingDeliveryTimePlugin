@@ -210,19 +210,6 @@ php bin/console cache:clear
 
 ### If the date format doesn't correspond to the locale on server, add package `icu-data-full`
 
-## Debug schedule
-
-You can use `asdoria:shipping-delivery-time:debug` command to debug schedule.
-
-Examples:
-
-```
-bin/console asdoria:shipping-delivery-time:debug
-bin/console asdoria:shipping-delivery-time:debug '+1 day'
-bin/console asdoria:shipping-delivery-time:debug '2021-04-29 16:29'
-bin/console asdoria:shipping-delivery-time:debug '2021-04-29 16:31'
-```
-
 [ico-version]: https://poser.pugx.org/asdoria/sylius-shipping-delivery-time-plugin/v/stable
 [ico-unstable-version]: https://poser.pugx.org/asdoria/sylius-shipping-delivery-time-plugin/v/unstable
 [ico-license]: https://poser.pugx.org/asdoria/sylius-shipping-delivery-time-plugin/license
