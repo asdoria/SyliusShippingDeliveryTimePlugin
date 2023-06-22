@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * This file is part of Asdoria shipping delivery time plugin for Sylius.
+ * (c) Asdoria <pve.asdoria@gmail.com>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace Asdoria\SyliusShippingDeliveryTimePlugin\DependencyInjection;
@@ -15,8 +22,15 @@ use Symfony\Component\Config\Definition\Builder\ArrayNodeDefinition;
 use Symfony\Component\Config\Definition\Builder\TreeBuilder;
 use Symfony\Component\Config\Definition\ConfigurationInterface;
 
+/**
+ * Class Configuration
+ * @package Asdoria\SyliusShippingDeliveryTimePlugin\DependencyInjection
+ */
 final class Configuration implements ConfigurationInterface
 {
+    /**
+     * @return TreeBuilder
+     */
     public function getConfigTreeBuilder(): TreeBuilder
     {
         $treeBuilder = new TreeBuilder('asdoria_sylius_shipping_delivery_time');
@@ -37,6 +51,11 @@ final class Configuration implements ConfigurationInterface
         return $treeBuilder;
     }
 
+    /**
+     * @param ArrayNodeDefinition $node
+     *
+     * @return void
+     */
     private function addResourcesSection(ArrayNodeDefinition $node): void
     {
         /**

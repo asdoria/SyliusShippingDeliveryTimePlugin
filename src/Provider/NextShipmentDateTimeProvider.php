@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * This file is part of Asdoria shipping delivery time plugin for Sylius.
+ * (c) Asdoria <pve.asdoria@gmail.com>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace Asdoria\SyliusShippingDeliveryTimePlugin\Provider;
@@ -11,15 +18,27 @@ use Asdoria\SyliusShippingDeliveryTimePlugin\Repository\ShippingScheduleReposito
 use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Core\Model\ShippingMethodInterface;
 
+/**
+ * Class NextShipmentDateTimeProvider
+ * @package Asdoria\SyliusShippingDeliveryTimePlugin\Provider
+ */
 final class NextShipmentDateTimeProvider implements NextShipmentDateTimeProviderInterface
 {
-    private ShippingScheduleRepositoryInterface $repository;
-
-    public function __construct(ShippingScheduleRepositoryInterface $repository)
+    /**
+     * @param ShippingScheduleRepositoryInterface $repository
+     */
+    public function __construct(private ShippingScheduleRepositoryInterface $repository)
     {
-        $this->repository = $repository;
     }
 
+    /**
+     * @param ChannelInterface        $channel
+     * @param ShippingMethodInterface $shippingMethod
+     * @param DateTimeInterface|null  $at
+     * @param int                     $searchDaysLimit
+     *
+     * @return DateTimeInterface|null
+     */
     public function getNextShipmentDateTime(ChannelInterface $channel, ShippingMethodInterface $shippingMethod, DateTimeInterface $at = null, int $searchDaysLimit = 10): ?DateTimeInterface
     {
         if ($searchDaysLimit-- <= 0) {
@@ -57,6 +76,12 @@ final class NextShipmentDateTimeProvider implements NextShipmentDateTimeProvider
         return $nextShipmentDateTime;
     }
 
+    /**
+     * @param DateTimeInterface $date
+     * @param DateTimeInterface $time
+     *
+     * @return DateTimeInterface
+     */
     private function getDateTime(DateTimeInterface $date, DateTimeInterface $time): DateTimeInterface
     {
         $dateTimeString = $date->format(sprintf(
@@ -67,6 +92,11 @@ final class NextShipmentDateTimeProvider implements NextShipmentDateTimeProvider
         return DateTime::createFromFormat('Y-m-d H:i', $dateTimeString);
     }
 
+    /**
+     * @param DateTimeInterface $datetime
+     *
+     * @return DateTimeInterface
+     */
     private function getNextDayDateFromDateTime(DateTimeInterface $datetime): DateTimeInterface
     {
         $dateString = $datetime->format('Y-m-d 24:00:00');

@@ -1,7 +1,7 @@
 <?php
 
 /*
- * This file is part of Asdoria' menu bundle for Sylius.
+ * This file is part of Asdoria shipping delivery time plugin for Sylius.
  * (c) Asdoria <pve.asdoria@gmail.com>
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
@@ -15,22 +15,22 @@ use Asdoria\SyliusShippingDeliveryTimePlugin\Factory\Model\ShippingScheduleFacto
 use Asdoria\SyliusShippingDeliveryTimePlugin\Model\ShippingScheduleInterface;
 use Sylius\Component\Shipping\Model\ShippingMethodInterface;
 
+/**
+ * Class ShippingScheduleFactory
+ * @package Asdoria\SyliusShippingDeliveryTimePlugin\Factory
+ */
 class ShippingScheduleFactory implements ShippingScheduleFactoryInterface
 {
     /**
-     * @var string
-     * @psalm-var class-string
-     */
-    private $className;
-
-    /**
      * @psalm-param class-string $className
      */
-    public function __construct(string $className)
+    public function __construct(private string $className)
     {
-        $this->className = $className;
     }
 
+    /**
+     * @return mixed
+     */
     public function createNew()
     {
         return new $this->className();
@@ -49,6 +49,4 @@ class ShippingScheduleFactory implements ShippingScheduleFactoryInterface
 
         return $item;
     }
-
-
 }

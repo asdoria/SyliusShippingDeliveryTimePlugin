@@ -1,4 +1,12 @@
 <?php
+
+/*
+ * This file is part of Asdoria shipping delivery time plugin for Sylius.
+ * (c) Asdoria <pve.asdoria@gmail.com>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace Asdoria\SyliusShippingDeliveryTimePlugin\Helper;
@@ -19,25 +27,16 @@ use Sylius\Component\Resource\Repository\RepositoryInterface;
 class ZoneHelper implements ZoneHelperInterface
 {
     /**
-     * @var RepositoryInterface
-     */
-    protected RepositoryInterface $provinceRepository;
-
-    /**
-     * @var RepositoryInterface
-     */
-    protected RepositoryInterface $countryRepository;
-
-    /**
      * ZoneHelper constructor.
      *
      * @param RepositoryInterface $provinceRepository
      * @param RepositoryInterface $countryRepository
      */
-    public function __construct(RepositoryInterface $provinceRepository, RepositoryInterface $countryRepository)
+    public function __construct(
+        protected RepositoryInterface $provinceRepository,
+        protected RepositoryInterface $countryRepository
+    )
     {
-        $this->provinceRepository = $provinceRepository;
-        $this->countryRepository  = $countryRepository;
     }
 
     /**
@@ -73,6 +72,4 @@ class ZoneHelper implements ZoneHelperInterface
 
         return $this->countryRepository->findOneBy(['code' => $zoneMember->getCode()]);
     }
-
-
 }

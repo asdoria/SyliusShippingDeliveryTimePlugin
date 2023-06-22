@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * This file is part of Asdoria shipping delivery time plugin for Sylius.
+ * (c) Asdoria <pve.asdoria@gmail.com>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace Asdoria\SyliusShippingDeliveryTimePlugin\DependencyInjection;
@@ -14,11 +21,21 @@ use Symfony\Component\DependencyInjection\Extension\ExtensionInterface;
 use Symfony\Component\DependencyInjection\Extension\PrependExtensionInterface;
 use Symfony\Component\DependencyInjection\Loader;
 
+/**
+ * Class AsdoriaSyliusShippingDeliveryTimeExtension
+ * @package Asdoria\SyliusShippingDeliveryTimePlugin\DependencyInjection
+ */
 final class AsdoriaSyliusShippingDeliveryTimeExtension extends AbstractResourceExtension implements PrependExtensionInterface, ExtensionInterface
 {
     use PrependDoctrineMigrationsTrait;
 
-
+    /**
+     * @param array            $configs
+     * @param ContainerBuilder $container
+     *
+     * @return void
+     * @throws \Exception
+     */
     public function load(array $configs, ContainerBuilder $container): void
     {
         /**

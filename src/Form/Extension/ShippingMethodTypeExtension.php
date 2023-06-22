@@ -1,10 +1,8 @@
 <?php
 
 /*
- * This file is part of the Sylius package.
- *
- * (c) Paweł Jędrzejewski
- *
+ * This file is part of Asdoria shipping delivery time plugin for Sylius.
+ * (c) Asdoria <pve.asdoria@gmail.com>
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
@@ -12,7 +10,6 @@
 declare(strict_types=1);
 
 namespace Asdoria\SyliusShippingDeliveryTimePlugin\Form\Extension;
-
 
 use Asdoria\SyliusShippingDeliveryTimePlugin\Entity\ShippingSchedule;
 use Asdoria\SyliusShippingDeliveryTimePlugin\Form\Type\AdditionalDeliveryTime;

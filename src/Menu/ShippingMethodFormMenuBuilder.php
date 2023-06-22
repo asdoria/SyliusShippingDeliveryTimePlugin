@@ -1,10 +1,8 @@
 <?php
 
 /*
- * This file is part of the Sylius package.
- *
- * (c) Paweł Jędrzejewski
- *
+ * This file is part of Asdoria shipping delivery time plugin for Sylius.
+ * (c) Asdoria <pve.asdoria@gmail.com>
  * For the full copyright and license information, please view the LICENSE
  * file that was distributed with this source code.
  */
@@ -19,14 +17,27 @@ use Asdoria\SyliusShippingDeliveryTimePlugin\Event\ShippingMethodMenuBuilderEven
 use Sylius\Component\Core\Model\ShippingMethodInterface;
 use Symfony\Component\EventDispatcher\EventDispatcherInterface;
 
+/**
+ * Class ShippingMethodFormMenuBuilder
+ * @package Asdoria\SyliusShippingDeliveryTimePlugin\Menu
+ */
 final class ShippingMethodFormMenuBuilder
 {
     public const EVENT_NAME = 'asdoria_shipping_delivery_time.menu.admin.shipping_method.form';
 
+    /**
+     * @param FactoryInterface         $factory
+     * @param EventDispatcherInterface $eventDispatcher
+     */
     public function __construct(private FactoryInterface $factory, private EventDispatcherInterface $eventDispatcher)
     {
     }
 
+    /**
+     * @param array $options
+     *
+     * @return ItemInterface
+     */
     public function createMenu(array $options = []): ItemInterface
     {
         $menu = $this->factory->createItem('root');

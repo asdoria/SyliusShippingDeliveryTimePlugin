@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * This file is part of Asdoria shipping delivery time plugin for Sylius.
+ * (c) Asdoria <pve.asdoria@gmail.com>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace Asdoria\SyliusShippingDeliveryTimePlugin\Twig;
@@ -28,20 +35,12 @@ use Sylius\Component\Shipping\Resolver\ShippingMethodsResolverInterface;
 use Twig\Extension\AbstractExtension;
 use Twig\TwigFunction;
 
+/**
+ * Class ShippingDeliveryTimeExtension
+ * @package Asdoria\SyliusShippingDeliveryTimePlugin\Twig
+ */
 final class ShippingDeliveryTimeExtension extends AbstractExtension
 {
-    private NextShipmentDateTimeProviderInterface $nextShipmentDateTimeProvider;
-
-    protected ShippingMethodRepositoryInterface $methodRepository;
-
-    protected ShippingMethodsResolverInterface $shippingMethodsResolver;
-
-    protected CartContextInterface $contextCart;
-
-    protected ChannelContextInterface $channelContext;
-
-    protected ZoneHelperInterface $zoneHelper;
-
     const _DAYS_OF_WEEK
         = [
             ShippingSchedule::WEEKDAY_MONDAY,
@@ -64,22 +63,19 @@ final class ShippingDeliveryTimeExtension extends AbstractExtension
      * @param ZoneHelperInterface                   $zoneHelper
      */
     public function __construct(
-        NextShipmentDateTimeProviderInterface $nextShipmentDateTimeProvider,
-        ShippingMethodRepositoryInterface $methodRepository,
-        ShippingMethodsResolverInterface $shippingMethodsResolver,
-        CartContextInterface $contextCart,
-        ChannelContextInterface $channelContext,
-        ZoneHelperInterface $zoneHelper
+        private NextShipmentDateTimeProviderInterface $nextShipmentDateTimeProvider,
+        protected ShippingMethodRepositoryInterface $methodRepository,
+        protected ShippingMethodsResolverInterface $shippingMethodsResolver,
+        protected CartContextInterface $contextCart,
+        protected ChannelContextInterface $channelContext,
+        protected ZoneHelperInterface $zoneHelper
     )
     {
-        $this->nextShipmentDateTimeProvider = $nextShipmentDateTimeProvider;
-        $this->methodRepository             = $methodRepository;
-        $this->shippingMethodsResolver      = $shippingMethodsResolver;
-        $this->contextCart                  = $contextCart;
-        $this->channelContext               = $channelContext;
-        $this->zoneHelper                   = $zoneHelper;
     }
 
+    /**
+     * @return TwigFunction[]
+     */
     public function getFunctions(): array
     {
         return [

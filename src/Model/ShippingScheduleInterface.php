@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * This file is part of Asdoria shipping delivery time plugin for Sylius.
+ * (c) Asdoria <pve.asdoria@gmail.com>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace Asdoria\SyliusShippingDeliveryTimePlugin\Model;
@@ -11,6 +18,10 @@ use Sylius\Component\Core\Model\ChannelInterface;
 use Sylius\Component\Resource\Model\CodeAwareInterface;
 use Sylius\Component\Resource\Model\ResourceInterface;
 
+/**
+ * Interface ShippingScheduleInterface
+ * @package Asdoria\SyliusShippingDeliveryTimePlugin\Model
+ */
 interface ShippingScheduleInterface extends ResourceInterface, CodeAwareInterface, ShippingMethodAwareInterface
 {
     public const NO_SHIPPING = null;
@@ -31,20 +42,52 @@ interface ShippingScheduleInterface extends ResourceInterface, CodeAwareInterfac
 
     public const WEEKDAY_SATURDAY = 6;
 
+    /**
+     * @return int|null
+     */
     public function getWeekday(): ?int;
 
+    /**
+     * @param int|null $weekday
+     *
+     * @return void
+     */
     public function setWeekday(?int $weekday): void;
 
+    /**
+     * @return DateTimeInterface|null
+     */
     public function getShipAt(): ?DateTimeInterface;
 
+    /**
+     * @param DateTimeInterface|null $shipAt
+     *
+     * @return void
+     */
     public function setShipAt(?DateTimeInterface $shipAt): void;
 
+    /**
+     * @return DateTimeInterface|null
+     */
     public function getStartsAt(): ?DateTimeInterface;
 
+    /**
+     * @param DateTimeInterface|null $startsAt
+     *
+     * @return void
+     */
     public function setStartsAt(?DateTimeInterface $startsAt): void;
 
+    /**
+     * @return DateTimeInterface|null
+     */
     public function getEndsAt(): ?DateTimeInterface;
 
+    /**
+     * @param DateTimeInterface|null $endsAt
+     *
+     * @return void
+     */
     public function setEndsAt(?DateTimeInterface $endsAt): void;
 
     /**
@@ -53,9 +96,22 @@ interface ShippingScheduleInterface extends ResourceInterface, CodeAwareInterfac
      */
     public function getChannels(): Collection;
 
+    /**
+     * @param ChannelInterface $channel
+     *
+     * @return bool
+     */
     public function hasChannel(ChannelInterface $channel): bool;
 
+    /**
+     * @return int|null
+     */
     public function getPriority(): ?int;
 
+    /**
+     * @param int|null $priority
+     *
+     * @return void
+     */
     public function setPriority(?int $priority): void;
 }

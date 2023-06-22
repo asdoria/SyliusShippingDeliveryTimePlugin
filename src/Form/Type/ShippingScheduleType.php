@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * This file is part of Asdoria shipping delivery time plugin for Sylius.
+ * (c) Asdoria <pve.asdoria@gmail.com>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace Asdoria\SyliusShippingDeliveryTimePlugin\Form\Type;
@@ -13,8 +20,18 @@ use Symfony\Component\Form\Extension\Core\Type\IntegerType;
 use Symfony\Component\Form\Extension\Core\Type\TimeType;
 use Symfony\Component\Form\FormBuilderInterface;
 
+/**
+ * Class ShippingScheduleType
+ * @package Asdoria\SyliusShippingDeliveryTimePlugin\Form\Type
+ */
 final class ShippingScheduleType extends AbstractResourceType
 {
+    /**
+     * @param FormBuilderInterface $builder
+     * @param array                $options
+     *
+     * @return void
+     */
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
@@ -60,6 +77,9 @@ final class ShippingScheduleType extends AbstractResourceType
         ;
     }
 
+    /**
+     * @return string
+     */
     public function getBlockPrefix(): string
     {
         return 'asdoria_shipping_delivery_time_shipping_schedule';

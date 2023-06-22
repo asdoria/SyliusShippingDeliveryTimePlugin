@@ -1,15 +1,5 @@
 <h1 align="center">Asdoria Sylius Shipping Delivery Time Plugin</h1>
 
-<div align="center">
-
-[![Latest Version][ico-version]][link-packagist]
-[![Latest Unstable Version][ico-unstable-version]][link-packagist]
-[![Software License][ico-license]](LICENSE)
-[![Build Status][ico-github-actions]][link-github-actions]
-[![Code Coverage][ico-code-coverage]][link-code-coverage]
-
-</div>
-
 <div style="max-width: max-content; height: auto; margin: auto">
 
 ![Shipping delivery time plugin](doc/presentation.gif)
@@ -209,13 +199,3 @@ php bin/console cache:clear
 ```
 
 ### If the date format doesn't correspond to the locale on server, add package `icu-data-full`
-
-[ico-version]: https://poser.pugx.org/asdoria/sylius-shipping-delivery-time-plugin/v/stable
-[ico-unstable-version]: https://poser.pugx.org/asdoria/sylius-shipping-delivery-time-plugin/v/unstable
-[ico-license]: https://poser.pugx.org/asdoria/sylius-shipping-delivery-time-plugin/license
-[ico-github-actions]: https://github.com/Setono/SyliusShippingDeliveryTimePlugin/workflows/build/badge.svg
-[ico-code-coverage]: https://codecov.io/gh/Setono/SyliusShippingDeliveryTimePlugin/branch/master/graph/badge.svg
-
-[link-packagist]: https://packagist.org/packages/asdoria/sylius-shipping-delivery-time-plugin
-[link-github-actions]: https://github.com/Setono/SyliusShippingDeliveryTimePlugin/actions
-[link-code-coverage]: https://codecov.io/gh/Setono/SyliusShippingDeliveryTimePlugin

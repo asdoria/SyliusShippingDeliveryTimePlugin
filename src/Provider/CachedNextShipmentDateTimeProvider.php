@@ -1,5 +1,12 @@
 <?php
 
+/*
+ * This file is part of Asdoria shipping delivery time plugin for Sylius.
+ * (c) Asdoria <pve.asdoria@gmail.com>
+ * For the full copyright and license information, please view the LICENSE
+ * file that was distributed with this source code.
+ */
+
 declare(strict_types=1);
 
 namespace Asdoria\SyliusShippingDeliveryTimePlugin\Provider;
@@ -10,20 +17,32 @@ use Sylius\Component\Core\Model\ShippingMethodInterface;
 use Symfony\Component\Cache\Adapter\AdapterInterface;
 use Webmozart\Assert\Assert;
 
+/**
+ * Class CachedNextShipmentDateTimeProvider
+ * @package Asdoria\SyliusShippingDeliveryTimePlugin\Provider
+ */
 final class CachedNextShipmentDateTimeProvider implements NextShipmentDateTimeProviderInterface
 {
-    private NextShipmentDateTimeProviderInterface $decorated;
-
-    private AdapterInterface $cache;
-
+    /**
+     * @param NextShipmentDateTimeProviderInterface $decorated
+     * @param AdapterInterface                      $cache
+     */
     public function __construct(
-        NextShipmentDateTimeProviderInterface $decorated,
-        AdapterInterface $cache
-    ) {
-        $this->decorated = $decorated;
-        $this->cache = $cache;
+        private NextShipmentDateTimeProviderInterface $decorated,
+        private AdapterInterface $cache
+    )
+    {
     }
 
+    /**
+     * @param ChannelInterface        $channel
+     * @param ShippingMethodInterface $shippingMethod
+     * @param DateTimeInterface|null  $at
+     * @param int                     $searchDaysLimit
+     *
+     * @return DateTimeInterface|null
+     * @throws \Psr\Cache\InvalidArgumentException
+     */
     public function getNextShipmentDateTime(ChannelInterface $channel, ShippingMethodInterface $shippingMethod, DateTimeInterface $at = null, int $searchDaysLimit = 10): ?DateTimeInterface
     {
         $channelCode = $channel->getCode();
