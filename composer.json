@@ -3,13 +3,13 @@
     "type": "sylius-plugin",
     "description": "Add shipping delivery time for products.",
     "keywords": ["asdoria", "sylius", "sylius-plugin", "shipping", "delivery"],
+    "license": "MIT",
     "authors": [
         {
-            "name": "philippe vesin",
-            "email": "philippe.vesin@asdoria.com"
+            "name": "Asdoria",
+            "email": "developpeurs@asdoria.com"
         }
     ],
-    "license": "PROPRIETARY",
     "require": {
         "php": "^8.0",
         "sylius/sylius": "^1.12"
