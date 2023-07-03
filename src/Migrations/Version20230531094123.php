@@ -33,7 +33,7 @@ final class Version20230531094123 extends AbstractMigration
             $this->addSql('ALTER TABLE sylius_product ADD additional_delivery_time INT DEFAULT 0');
         }
         if (!$schema->getTable('sylius_shipping_method')->hasColumn('delivery_weekdays')) {
-            $this->addSql('ALTER TABLE sylius_shipping_method ADD delivery_weekdays LONGTEXT DEFAULT NULL COMMENT '(DC2Type:array)', ADD delivery_max_time INT DEFAULT 0, ADD delivery_min_time INT DEFAULT 0, ADD additional_delivery_time LONGTEXT DEFAULT NULL COMMENT '(DC2Type:json)'');
+            $this->addSql('ALTER TABLE sylius_shipping_method ADD delivery_weekdays LONGTEXT DEFAULT NULL COMMENT \'(DC2Type:array)\', ADD delivery_max_time INT DEFAULT 0, ADD delivery_min_time INT DEFAULT 0, ADD additional_delivery_time LONGTEXT DEFAULT NULL COMMENT \'(DC2Type:json)\'');
             $this->addSql('UPDATE sylius_shipping_method SET delivery_weekdays = "a:0:{}" WHERE delivery_weekdays IS NULL');
             $this->addSql('UPDATE sylius_shipping_method SET additional_delivery_time = "{}" WHERE additional_delivery_time IS NULL');
         }
