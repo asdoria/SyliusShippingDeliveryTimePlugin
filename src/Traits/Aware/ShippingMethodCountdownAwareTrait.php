@@ -47,7 +47,7 @@ trait ShippingMethodCountdownAwareTrait
     /**
      * @var array
      *
-     * @ORM\Column(type="json", name="additional_delivery_time", nullable=true)
+     * @ORM\Column(type="json", name="additional_delivery_time", nullable=false)
      */
     protected array $additionalDeliveryTime = [];
 
