@@ -8,21 +8,6 @@
 
 ## Installation
 
-### Add to composer.json
-
-```json
-{
-    // ...
-    "repositories": [
-        // ...
-        {
-            "type": "github",
-            "url": "https://github.com/asdoria/AsdoriaSyliusShippingDeliveryTimePlugin.git"
-        }
-    ]
-}
-```
-
 ### Require plugin with composer:
 
 ```bash
@@ -38,9 +23,6 @@ imports:
 
     # Uncomment next line if you're using Webpack Encore
     # - { resource: "@AsdoriaSyliusShippingDeliveryTimePlugin/Resources/config/app/config_webpack.yaml" }
-    
-    # You can also import example fixtures to play
-    # - { resource: "@AsdoriaSyliusShippingDeliveryTimePlugin/Resources/config/app/fixtures.yaml" }
 ```
 
 ### Import routing:
@@ -87,7 +69,7 @@ class ShippingMethod extends BaseShippingMethod implements ShippingMethodCountdo
 }
 ```
 
-Make `src/Resources/config/doctrine/Shipping/ShippingMethod.orm.xml`
+If you don't use annotations, make `src/Resources/config/doctrine/Shipping/ShippingMethod.orm.xml`
 ```xml
 <mapped-superclass name="App\Entity\Shipping\ShippingMethod" table="sylius_shipping_method">
     <field name="deliveryWeekdays" column="delivery_weekdays" nullable="true" type="array"/>
@@ -131,7 +113,7 @@ class Product extends BaseProduct implements ProductInterface, ProductCountdownA
 }
 ```
 
-Make `src/Resources/config/doctrine/Product/Product.orm.xml`
+If you don't use annotations, make `src/Resources/config/doctrine/Product/Product.orm.xml`
 ```xml
 <mapped-superclass name="App\Entity\Product\Product" table="sylius_product">
     <field name="additionalDeliveryTime" column="additional_delivery_time" nullable="true" type="integer">
@@ -156,7 +138,7 @@ class Channel extends BaseChannel implements ChannelInterface, DefaultShippingZo
 }
 ```
 
-Make `src/Resources/config/doctrine/Channel/Channel.orm.xml`
+If you don't use annotations, make `src/Resources/config/doctrine/Channel/Channel.orm.xml`
 ```xml
 <mapped-superclass name="App\Entity\Channel\Channel" table="sylius_channel">
     <many-to-one field="defaultShippingZone" target-entity="Sylius\Component\Addressing\Model\ZoneInterface"/>
